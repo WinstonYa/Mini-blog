@@ -18,9 +18,7 @@ Page({
     }
   },
   onGetUserInfo(e) {
-    console.log(e.detail.userInfo)
     if (e.detail.userInfo) {
-      let userInfo = e.detail.userInfo;
       App.getUserInfo((res) => {
         this.setData({
           userInfo: res.userInfo
