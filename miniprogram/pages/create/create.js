@@ -80,6 +80,8 @@ Page({
   },
   //点击发布按钮的回调函数
   handleSubmit: function () {
+    let date = new Date();
+    let date_display = formatTime(date);
     let createTime = db.serverDate();
     let content = this.data.content;
     let imageUrl = this.data.imageUrl;
@@ -101,7 +103,7 @@ Page({
 
     db.collection('topic').add({
       data: {
-        content, userInfo, createTime, imageUrl, videoUrl
+        content, userInfo, date_display, createTime, imageUrl, videoUrl
       },
       success: (res) => {
         console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
